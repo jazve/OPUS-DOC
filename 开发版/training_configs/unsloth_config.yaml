@@ -1,0 +1,71 @@
+# Unsloth LoRA训练配置 - SSAP框架数据集
+# 使用方法: unsloth train --config unsloth_config.yaml
+
+model_name: "unsloth/llama-3-8b-bnb-4bit"  # 基础模型
+output_dir: "./ssap_lora_model"             # 输出目录
+dataset_path: "SSAP_LoRA_Dataset.json"     # 数据集路径
+
+# LoRA参数配置
+lora_config:
+  r: 32                    # LoRA rank，适合SSAP框架复杂性
+  lora_alpha: 64          # LoRA alpha，2*r的经验值
+  lora_dropout: 0.05      # LoRA dropout，防止过拟合
+  bias: "none"            # 偏置设置
+  task_type: "CAUSAL_LM"  # 任务类型
+  target_modules:         # 目标模块
+    - "q_proj"
+    - "k_proj" 
+    - "v_proj"
+    - "o_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+
+# 训练参数
+training_args:
+  per_device_train_batch_size: 2    # 训练批次大小
+  per_device_eval_batch_size: 2     # 验证批次大小  
+  gradient_accumulation_steps: 4    # 梯度累积步数
+  warmup_ratio: 0.03               # 预热比例
+  num_train_epochs: 3              # 训练轮数
+  learning_rate: 2.0e-4            # 学习率
+  fp16: true                       # 混合精度训练
+  logging_steps: 10                # 日志记录步数
+  optim: "adamw_8bit"              # 优化器
+  weight_decay: 0.01               # 权重衰减
+  lr_scheduler_type: "linear"      # 学习率调度器
+  seed: 3407                       # 随机种子
+
+# 数据处理
+data_config:
+  max_seq_length: 2048            # 最大序列长度
+  train_on_inputs: false          # 是否在输入上训练
+  group_by_length: true           # 按长度分组
+
+# 评估设置
+evaluation:
+  evaluation_strategy: "steps"    # 评估策略
+  eval_steps: 50                 # 评估步数
+  save_strategy: "steps"         # 保存策略  
+  save_steps: 100                # 保存步数
+  load_best_model_at_end: true   # 加载最佳模型
+
+# SSAP框架特定设置
+ssap_config:
+  focus_areas:                   # 重点训练领域
+    - "architecture_design"      # 架构设计
+    - "workflow_orchestration"   # 工作流编排
+    - "format_modules"           # 格式模块
+    - "intelligent_collaboration" # 智能协同
+  
+  quality_metrics:               # 质量指标
+    - "architecture_consistency" # 架构一致性
+    - "calling_standardization"  # 调用标准化
+    - "logic_clarity"           # 逻辑清晰度
+    - "professional_accuracy"    # 专业准确性
+
+# 硬件要求
+hardware_requirements:
+  min_gpu_memory: "24GB"         # 最小GPU内存
+  recommended_gpu: "RTX 4090/A100" # 推荐GPU
+  min_system_memory: "32GB"      # 最小系统内存 
