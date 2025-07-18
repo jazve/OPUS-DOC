@@ -1,0 +1,38 @@
+{
+  "test_cases": [
+    {
+      "id": "basic_001",
+      "name": "基础问答测试",
+      "input_text": "请简单介绍一下人工智能的基本概念",
+      "expected_patterns": [
+        "人工智能",
+        "AI",
+        "机器学习"
+      ],
+      "expected_format": "",
+      "category": "basic",
+      "priority": "high",
+      "metadata": {
+        "type": "qa",
+        "domain": "ai"
+      }
+    },
+    {
+      "id": "creative_001",
+      "name": "创意写作测试",
+      "input_text": "写一个关于未来科技的短故事",
+      "expected_patterns": [
+        "科技",
+        "未来",
+        "故事"
+      ],
+      "expected_format": "",
+      "category": "creative",
+      "priority": "medium",
+      "metadata": {
+        "type": "creative",
+        "domain": "writing"
+      }
+    }
+  ]
+}

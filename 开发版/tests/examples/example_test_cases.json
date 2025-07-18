@@ -1,0 +1,502 @@
+{
+  "test_cases": [
+    {
+      "id": "ssap_role_001",
+      "name": "SSAP框架角色定义测试",
+      "input_text": "你是谁？请介绍一下你的身份和能力。",
+      "expected_patterns": [
+        "我是.*专家",
+        "具备.*能力",
+        "专业.*知识",
+        "(专注于|致力于|专门从事)"
+      ],
+      "expected_format": "role_definition",
+      "category": "role_consistency",
+      "priority": "high",
+      "metadata": {
+        "type": "identity_test",
+        "framework": "SSAP",
+        "domain": "role_definition",
+        "complexity": "low"
+      }
+    },
+    {
+      "id": "ssap_format_001",
+      "name": "SSAP四段式格式测试",
+      "input_text": "请为我分析一个创业公司的营销策略问题。",
+      "expected_patterns": [
+        "🎯.*需求理解",
+        "💡.*核心洞察",
+        "🚀.*解决方案",
+        "📊.*补充信息"
+      ],
+      "expected_format": "ssap_4_section",
+      "category": "format_compliance",
+      "priority": "high",
+      "metadata": {
+        "type": "format_test",
+        "framework": "SSAP",
+        "domain": "business_analysis",
+        "complexity": "medium"
+      }
+    },
+    {
+      "id": "workflow_001",
+      "name": "基础工作流生成测试",
+      "input_text": "设计一个用户注册流程的工作流",
+      "expected_patterns": [
+        "FUNCTION.*注册",
+        "BEGIN",
+        "END",
+        "IF.*THEN",
+        "RETURN"
+      ],
+      "expected_format": "workflow_format",
+      "category": "workflow_generation",
+      "priority": "high",
+      "metadata": {
+        "type": "workflow_test",
+        "framework": "SSAP",
+        "domain": "user_management",
+        "complexity": "medium"
+      }
+    },
+    {
+      "id": "workflow_002",
+      "name": "复杂工作流测试",
+      "input_text": "创建一个智能客服系统的完整工作流，包括自然语言处理、意图识别、知识库查询和回复生成。",
+      "expected_patterns": [
+        "FUNCTION.*客服",
+        "BEGIN",
+        "END",
+        "IF.*THEN.*ELSE",
+        "意图识别",
+        "知识库",
+        "自然语言处理",
+        "RETURN"
+      ],
+      "expected_format": "workflow_format",
+      "category": "workflow_generation",
+      "priority": "high",
+      "metadata": {
+        "type": "complex_workflow_test",
+        "framework": "SSAP",
+        "domain": "ai_system",
+        "complexity": "high"
+      }
+    },
+    {
+      "id": "memory_001",
+      "name": "记忆系统测试",
+      "input_text": "基于历史对话记录，为用户提供个性化的产品推荐。",
+      "expected_patterns": [
+        "Memory",
+        "历史",
+        "个性化",
+        "记忆",
+        "学习",
+        "经验"
+      ],
+      "expected_format": "",
+      "category": "memory_system",
+      "priority": "medium",
+      "metadata": {
+        "type": "memory_test",
+        "framework": "SSAP",
+        "domain": "recommendation",
+        "complexity": "high"
+      }
+    },
+    {
+      "id": "consistency_001",
+      "name": "多轮对话一致性测试",
+      "input_text": "作为营销策略专家，请先介绍你的专业背景。",
+      "expected_patterns": [
+        "营销策略",
+        "专家",
+        "专业",
+        "背景",
+        "经验"
+      ],
+      "expected_format": "",
+      "category": "consistency",
+      "priority": "high",
+      "metadata": {
+        "type": "consistency_test",
+        "framework": "SSAP",
+        "domain": "role_consistency",
+        "complexity": "low",
+        "repeat_count": 5
+      }
+    },
+    {
+      "id": "performance_001",
+      "name": "响应速度测试",
+      "input_text": "你好",
+      "expected_patterns": [],
+      "expected_format": "",
+      "category": "performance",
+      "priority": "medium",
+      "metadata": {
+        "type": "speed_test",
+        "framework": "SSAP",
+        "domain": "performance",
+        "complexity": "low",
+        "expected_max_time": 2.0
+      }
+    },
+    {
+      "id": "performance_002",
+      "name": "复杂任务响应时间测试",
+      "input_text": "请设计一个完整的电商平台架构，包括用户管理、商品管理、订单处理、支付系统、物流管理、数据分析等模块，并提供详细的技术选型和实现方案。",
+      "expected_patterns": [
+        "架构",
+        "用户管理",
+        "商品管理",
+        "订单处理",
+        "支付系统",
+        "物流管理",
+        "数据分析"
+      ],
+      "expected_format": "",
+      "category": "performance",
+      "priority": "high",
+      "metadata": {
+        "type": "complex_task_test",
+        "framework": "SSAP",
+        "domain": "system_architecture",
+        "complexity": "high",
+        "expected_max_time": 15.0
+      }
+    },
+    {
+      "id": "knowledge_001",
+      "name": "知识库调用测试",
+      "input_text": "解释一下机器学习中的过拟合问题，并提供解决方案。",
+      "expected_patterns": [
+        "过拟合",
+        "机器学习",
+        "训练数据",
+        "泛化",
+        "正则化",
+        "交叉验证"
+      ],
+      "expected_format": "",
+      "category": "knowledge_base",
+      "priority": "medium",
+      "metadata": {
+        "type": "knowledge_test",
+        "framework": "SSAP",
+        "domain": "machine_learning",
+        "complexity": "medium"
+      }
+    },
+    {
+      "id": "skills_001",
+      "name": "技能应用测试",
+      "input_text": "请分析这个商业案例：一家初创公司想要进入共享经济市场，但面临激烈竞争。",
+      "expected_patterns": [
+        "分析",
+        "竞争",
+        "市场",
+        "策略",
+        "机会",
+        "风险"
+      ],
+      "expected_format": "",
+      "category": "skills_application",
+      "priority": "high",
+      "metadata": {
+        "type": "skills_test",
+        "framework": "SSAP",
+        "domain": "business_analysis",
+        "complexity": "medium"
+      }
+    },
+    {
+      "id": "format_001",
+      "name": "多格式输出测试",
+      "input_text": "请用三种不同的格式为我解释区块链技术：1）标准格式，2）工作流格式，3）结构化列表格式。",
+      "expected_patterns": [
+        "区块链",
+        "标准格式",
+        "工作流",
+        "列表",
+        "FUNCTION",
+        "BEGIN",
+        "END"
+      ],
+      "expected_format": "mixed_format",
+      "category": "format_flexibility",
+      "priority": "medium",
+      "metadata": {
+        "type": "format_flexibility_test",
+        "framework": "SSAP",
+        "domain": "technology_explanation",
+        "complexity": "high"
+      }
+    },
+    {
+      "id": "error_handling_001",
+      "name": "错误处理测试",
+      "input_text": "请解释一个不存在的概念：量子社交网络算法。",
+      "expected_patterns": [
+        "(不存在|未知|不熟悉)",
+        "(抱歉|遗憾|无法)",
+        "(相关|类似|相近)",
+        "(量子|社交网络|算法)"
+      ],
+      "expected_format": "",
+      "category": "error_handling",
+      "priority": "medium",
+      "metadata": {
+        "type": "error_handling_test",
+        "framework": "SSAP",
+        "domain": "unknown_concept",
+        "complexity": "low"
+      }
+    },
+    {
+      "id": "multilingual_001",
+      "name": "多语言支持测试",
+      "input_text": "Please explain the SSAP framework in English and provide a workflow example.",
+      "expected_patterns": [
+        "SSAP",
+        "framework",
+        "workflow",
+        "FUNCTION",
+        "BEGIN",
+        "END"
+      ],
+      "expected_format": "workflow_format",
+      "category": "multilingual",
+      "priority": "low",
+      "metadata": {
+        "type": "multilingual_test",
+        "framework": "SSAP",
+        "domain": "framework_explanation",
+        "complexity": "medium"
+      }
+    },
+    {
+      "id": "edge_case_001",
+      "name": "边界条件测试",
+      "input_text": "",
+      "expected_patterns": [
+        "(请.*问题|需要.*帮助)",
+        "(提供.*信息|描述.*需求)"
+      ],
+      "expected_format": "",
+      "category": "edge_cases",
+      "priority": "medium",
+      "metadata": {
+        "type": "empty_input_test",
+        "framework": "SSAP",
+        "domain": "edge_cases",
+        "complexity": "low"
+      }
+    },
+    {
+      "id": "edge_case_002",
+      "name": "超长输入测试",
+      "input_text": "请分析以下复杂的业务场景：一家传统制造企业想要进行数字化转型，但是面临着多重挑战，包括但不限于：1）现有的ERP系统老旧，需要升级；2）员工对新技术的接受度不高；3）资金预算有限；4）市场竞争激烈，需要快速响应；5）供应链管理复杂；6）客户需求多样化；7）法规政策变化频繁；8）技术人才短缺；9）数据安全和隐私保护要求严格；10）投资回报率需要得到保证。请针对这些挑战提出综合性的解决方案，并设计一个详细的实施计划，包括时间安排、资源配置、风险控制、效果评估等各个方面。",
+      "expected_patterns": [
+        "数字化转型",
+        "ERP系统",
+        "员工培训",
+        "资金预算",
+        "市场竞争",
+        "供应链",
+        "客户需求",
+        "法规政策",
+        "技术人才",
+        "数据安全",
+        "投资回报"
+      ],
+      "expected_format": "ssap_4_section",
+      "category": "edge_cases",
+      "priority": "high",
+      "metadata": {
+        "type": "long_input_test",
+        "framework": "SSAP",
+        "domain": "digital_transformation",
+        "complexity": "high"
+      }
+    },
+    {
+      "id": "contextual_001",
+      "name": "上下文理解测试",
+      "input_text": "基于我之前提到的营销策略问题，请深入分析竞争对手的策略。",
+      "expected_patterns": [
+        "(之前|先前|前面)",
+        "竞争对手",
+        "策略",
+        "分析",
+        "(上下文|背景|情况)"
+      ],
+      "expected_format": "",
+      "category": "contextual_understanding",
+      "priority": "medium",
+      "metadata": {
+        "type": "context_test",
+        "framework": "SSAP",
+        "domain": "marketing_analysis",
+        "complexity": "medium"
+      }
+    },
+    {
+      "id": "adaptive_001",
+      "name": "自适应响应测试",
+      "input_text": "我是一个初学者，请用简单的语言解释人工智能。",
+      "expected_patterns": [
+        "简单",
+        "初学者",
+        "人工智能",
+        "通俗",
+        "易懂",
+        "基础"
+      ],
+      "expected_format": "",
+      "category": "adaptive_response",
+      "priority": "medium",
+      "metadata": {
+        "type": "adaptive_test",
+        "framework": "SSAP",
+        "domain": "ai_explanation",
+        "complexity": "low"
+      }
+    },
+    {
+      "id": "creative_001",
+      "name": "创造性思维测试",
+      "input_text": "为一家卖雨伞的公司设计一个创新的营销活动。",
+      "expected_patterns": [
+        "创新",
+        "营销活动",
+        "雨伞",
+        "创意",
+        "独特",
+        "吸引"
+      ],
+      "expected_format": "",
+      "category": "creativity",
+      "priority": "medium",
+      "metadata": {
+        "type": "creativity_test",
+        "framework": "SSAP",
+        "domain": "marketing_creativity",
+        "complexity": "medium"
+      }
+    },
+    {
+      "id": "ethical_001",
+      "name": "伦理判断测试",
+      "input_text": "一家公司想要收集用户的个人数据来改善服务，但用户可能不知情。你认为这样做合适吗？",
+      "expected_patterns": [
+        "伦理",
+        "隐私",
+        "用户知情",
+        "合规",
+        "透明",
+        "同意"
+      ],
+      "expected_format": "",
+      "category": "ethics",
+      "priority": "high",
+      "metadata": {
+        "type": "ethics_test",
+        "framework": "SSAP",
+        "domain": "data_privacy",
+        "complexity": "medium"
+      }
+    },
+    {
+      "id": "integration_001",
+      "name": "系统集成测试",
+      "input_text": "设计一个包含用户管理、内容管理和数据分析的完整系统工作流。",
+      "expected_patterns": [
+        "用户管理",
+        "内容管理",
+        "数据分析",
+        "系统集成",
+        "FUNCTION",
+        "BEGIN",
+        "END",
+        "模块"
+      ],
+      "expected_format": "workflow_format",
+      "category": "system_integration",
+      "priority": "high",
+      "metadata": {
+        "type": "integration_test",
+        "framework": "SSAP",
+        "domain": "system_architecture",
+        "complexity": "high"
+      }
+    }
+  ],
+  "test_suites": {
+    "basic_ssap_suite": [
+      "ssap_role_001",
+      "ssap_format_001",
+      "workflow_001",
+      "consistency_001"
+    ],
+    "performance_suite": [
+      "performance_001",
+      "performance_002",
+      "edge_case_001",
+      "edge_case_002"
+    ],
+    "advanced_features_suite": [
+      "memory_001",
+      "knowledge_001",
+      "skills_001",
+      "format_001"
+    ],
+    "robustness_suite": [
+      "error_handling_001",
+      "multilingual_001",
+      "contextual_001",
+      "adaptive_001"
+    ],
+    "comprehensive_suite": [
+      "ssap_role_001",
+      "ssap_format_001",
+      "workflow_001",
+      "workflow_002",
+      "memory_001",
+      "consistency_001",
+      "performance_001",
+      "knowledge_001",
+      "skills_001",
+      "format_001",
+      "error_handling_001",
+      "creative_001",
+      "ethical_001",
+      "integration_001"
+    ]
+  },
+  "evaluation_criteria": {
+    "ssap_compliance": {
+      "weight": 0.3,
+      "description": "SSAP框架规范遵循度"
+    },
+    "response_quality": {
+      "weight": 0.25,
+      "description": "响应内容质量和准确性"
+    },
+    "format_consistency": {
+      "weight": 0.2,
+      "description": "格式一致性和结构化程度"
+    },
+    "performance": {
+      "weight": 0.15,
+      "description": "响应速度和效率"
+    },
+    "robustness": {
+      "weight": 0.1,
+      "description": "边界条件和错误处理能力"
+    }
+  }
+}
