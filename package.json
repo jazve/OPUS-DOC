@@ -1,0 +1,39 @@
+{
+  "name": "opus-ai-framework",
+  "version": "1.0.0",
+  "description": "OPUS - AI智能体框架：基于单一系统提示词的AI Agent构建工具",
+  "keywords": [
+    "AI",
+    "Agent",
+    "ChatGPT",
+    "Claude",
+    "Gemini",
+    "prompt-engineering",
+    "ai-framework",
+    "artificial-intelligence",
+    "no-code",
+    "automation",
+    "rag",
+    "mcp",
+    "llm",
+    "nlp",
+    "conversational-ai",
+    "ai-assistant",
+    "workflow",
+    "productivity"
+  ],
+  "homepage": "https://github.com/jazve/OPUS-DOC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jazve/OPUS-DOC.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jazve/OPUS-DOC/issues"
+  },
+  "author": {
+    "name": "OPUS Team",
+    "url": "https://github.com/jazve"
+  },
+  "license": "MIT",
+  "main": "README.md"
+} 
